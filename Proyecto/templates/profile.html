@@ -1,0 +1,94 @@
+<!-- Azul Alfaro Fernández-->
+
+<!DOCTYPE html>
+<html lang = "es">
+    <!-- un comentario wuuuu -->
+    <!-- en el hea va el metadata de la pagina-->
+    <head>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Creación de factura</title>
+        <link rel="stylesheet" href="./../static/datos.css">
+
+    </head>
+    <!--mbody es todo el contenido visible de la pagina web-->
+
+    <body>
+        <!--ESTE CACHO ES EL HEADER: REUTILIZAR-->
+        <div class="header">
+          <a target="_blank" href="https://idc.brightspotcdn.com/dims4/default/6b2f55b/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fidc.brightspotcdn.com%2F41%2F44%2F6dc670a34771af1e19fd61b42e99%2Fradiografia-de-una-factura-electronica-cfdi-version-3.3.jpg" class="logo">Farmacia</a>
+            <div class="header-center">
+                
+              <a id="source-link" href="./../templates/index.html" >
+                <span>Menu Principal</span>
+              </a>
+              <a id="source-link" href="http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/Anexo_20_Guia_de_llenado_CFDI.pdf">
+                <span>Datos sobre el CFDI</span>
+              </a>
+              <a id="source-link" href="./nosotros.html">
+                <span>Sobre la farmacia</span>
+              </a>
+            </div>
+          </div>
+          <!--ESTE CACHO ES EL HEADER: REUTILIZAR-->
+          
+        <p class="p1">Porfavor ingresa tus datos</p>
+
+        <!-- FORMULARIOS -->
+    <form>
+      <form id="survey-form">
+
+        <div id="description"> Llena los siguientes espacios</div><br>
+      
+        <fieldset class="fieldset">
+      
+          <div class="sub-group">
+            <label class="left" id="name-label" for="name">Nombre:</label>
+          <input type="text" name="customer-name" class="right input-field" id="name" placeholder="PATERNO MATERNO NOMBRE(S)" required>
+          </div>
+      
+          <div class="sub-group">
+            <label class="left" id="email-label" for="email">Uso o destino del CFDI:</label>
+          <input type="email" name="Email-address" class="right input-field" placeholder="Ingresa tu correo" id="email" required>
+          </div>
+      
+          <div class="sub-group">
+            <label  class="left" id="number-label" for="number">RFC Emisor</label>
+          <input type="number" name="Age" placeholder="Edad" min="1" max="100" class="right input-field" id="number">
+        </div>
+      
+          <div class="sub-group">
+            <label class="left" id="handphone-label" for="handphone">Moneda</label>
+      
+          <input type="text" placeholder="Número" class="right input-field" id="handphone">
+        </div>
+
+        <div class="sub-group">
+          <label class="left" id="handphone-label" for="handphone">Forma de Pago</label>
+    
+        <input type="text" placeholder="Número" class="right input-field" id="handphone">
+      </div>
+      <div class="sub-group">
+        <label class="left" id="handphone-label" for="handphone">Método de Pago</label>
+  
+      <input type="text" placeholder="Número" class="right input-field" id="handphone">
+    </div>
+      
+        </fieldset>
+            
+           <fieldset class="fieldset">
+         <h2>¿Tienes alguna duda o queja? Deja aqui tu comentario<</h2>
+      
+          <div class="commentbox">
+      
+         <textarea rows="4"  placeholder="Escribe aqui tu comentario. Apreciamos tu apoyo."></textarea>
+      
+
+      
+        <button class="p2" id="submit" type="submit">Enviar</button>
+             </div></fieldset>
+      </form>
+
+
+    </body>
+</html>
