@@ -1,0 +1,198 @@
+<!-- Azul Alfaro Fernández-->
+
+<!DOCTYPE html>
+<html lang = "es">
+    <!-- un comentario wuuuu -->
+    <!-- en el hea va el metadata de la pagina-->
+    <head>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Creación de factura</title>
+        <link rel="stylesheet" href="./../static/datos.css">
+        <script type="text/javascript" src = "./../static/jspdf.min.js"></script>
+        <script type="text/simple" src = "./../static/datos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.4/jspdf.plugin.autotable.min.js"></script>
+
+    </head>
+    <!--mbody es todo el contenido visible de la pagina web-->
+
+    <body>
+        <!--ESTE CACHO ES EL HEADER: REUTILIZAR-->
+        <div class="header">
+          
+          
+          <a target="_blank" href="./../views/">
+            <img src="https://i.ibb.co/27Hj28Q/Captura-de-pantalla-2024-04-06-011505.jpg" alt="Logo" width="120" height="80">
+          </a>  
+          <div class="header-center">
+                
+              <a id="source-link" href="./../views/" >
+                <span>Menu Principal</span>
+              </a>
+              <a id="source-link" href="http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/Anexo_20_Guia_de_llenado_CFDI.pdf">
+                <span>Datos sobre el CFDI</span>
+              </a>
+              <a id="source-link" href="./nosotros.html">
+                <span>Sobre la farmacia</span>
+              </a>
+            </div>
+          </div>
+          <!--ESTE CACHO ES EL HEADER: REUTILIZAR-->
+        <p class="p1">Emite tus comprobantes fiscales digitales.</p>
+        <p class="p2">Obtén tu Factura Electrónica de manera rápida, sencilla y confiable.
+            Cuentas con 30 días a partir del día de tu compra.</p>
+
+        <!-- FORMULARIOS -->
+    <form>
+      <form id="survey-form">
+
+        <div id="description"> Emite tu factura</div><br>
+      
+        <div class="box">
+            <a href="#popup-box"
+                >Aviso</a
+            >
+        </div>
+        <div id="popup-box" class="modal">
+            <div class="content">
+                <h1 style="color: rgb(0,0,0)">
+                    Nuevo CFDI
+                </h1>
+                <p class="p2">Te informamos que derivado de la Reforma Fiscal emitida por el Servicio de Administración Tributaria (SAT) y 
+                    publicada en el Diario Oficial de la Federación, a partir del 1 de enero del 2022 se actualizará la versión de 
+                    los Comprobantes Fiscales Digitales por Internet (CFDI), siendo relevante que los siguientes datos coincidan con los 
+                    registrados en tu Constancia de Situación Fiscal:
+                    <br>
+                    <br>Registro Federal de Contribuyentes con homoclave (RFC a 13 posiciones Persona Física o 12 Persona Moral)
+                    <br>Nombre completo (nombre(s), apellido paterno, apellido materno, en caso de ser persona moral no incluir las siglas que aparecen al final del nombre de tu empresa ejem. SA de CV, S L DE RL, C. A etc..)
+                    <br>Dirección completa (calle, no. interior y/o exterior, colonia, alcaldía, código postal)
+                   <br> Régimen fiscal inscrito en tu Constancia de Situación Fiscal.
+                   <br>Los datos del domicilio fiscal los podrás obtener de tu Constancia de Situación Fiscal, la cual puedes consultar en el portal del SAT
+    </p>
+                <a
+                    href="#"
+                    style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        font-size: 30px;
+                        text-decoration: none;
+                        color:black;
+                    "
+                    >&times;</a
+                >
+            </div>
+        </div>
+        
+    
+        <P><BR><BR><BR><BR><BR><BR><BR></P>
+
+        <fieldset class="fieldset">
+      
+          <div class="sub-group">
+            <label class="left" id="name-label" for="name">Nombre:</label>
+          <input type="text" name="customer-name" class="right input-field" id="name" placeholder="PATERNO MATERNO NOMBRE(S)" required>
+          </div>
+      
+          <div class="sub-group">
+            <label class="left" id="email-label" for="email">Correo al que llega la factura:</label>
+          <input type="email" name="correo" class="right input-field" placeholder="Ingresa tu correo" id="email" required>
+          </div>
+          <label for="start">Fecha:</label>
+          <input type="date" id="Fecha" name="Fecha" value="2024-04-05" min="2020-01-01" max="2024-04-05" />
+          
+          <div class="sub-group">
+            <label class="left" id="email-label" for="email">Uso o destino del CFDI:</label>
+          <input type="text" name="CFDIDestine" class="right input-field" placeholder="Uso CFDI" id="CFDIDestine" required>
+          </div>
+      
+          <div class="sub-group">
+            <label  class="left" id="number-label" for="number">RFC Emisor</label>
+          <input type="text" name="RFC" placeholder="RFC" class="right input-field" id="RFC">
+        </div>
+       <div class="sub-group">
+        <label class="left" for="dropdown">Forma de pago</label>
+  
+        <select class="right dropdown" id="FormaPago" name="FormaPago">
+          <option selected disabled>Elige una opción</option>
+          <option value="Efectivo">Efectivo</option>
+          <option value="Tarjeta Bancaria">Tarjeta bancaria (crédito o debito)</option>
+          <option value="Otros">Vales u otros</option>
+        </select>
+      </div>
+
+      <div class="sub-group">
+        <label class="left" for="dropdown">Método de pago</label>
+  
+        <select class="right dropdown" id="MetodoPago" name="MetodoPago">
+          <option selected disabled>Elige una opción</option>
+          <option value="Pago en una sola excibición">Pago en una sola excibición</option>
+          <option value="Pago en Parcialidades o Diferido">Pago en Parcialidades o Diferido</option>
+        </select>
+      </div>
+  
+      
+        </fieldset>
+            
+           <fieldset class="fieldset">
+         <h2>¿Tienes alguna duda o queja? Deja aqui tu comentario</h2>
+      
+          <div class="commentbox">
+      
+         <textarea rows="4"  placeholder="Escribe aqui tu comentario. Apreciamos tu apoyo."></textarea>
+      
+<p><br></p>
+      
+        <button class="p2" id="submit" type="submit">Enviar</button>
+             </div></fieldset>
+      </form>
+
+      <h2>Crear PDF</h2>
+      <a class="p1" href="javascript:genPDF()" type="submit">Crear pdf</a>
+      <script type="text/javascript">
+          function genPDF(){
+              var doc = new jsPDF()
+              doc.addFont("/fonts/Pompiere-Regular.ttf", "Pompiere", "regular");
+              doc.setFont("Pompiere");
+              doc.setFontType("regular");     
+              let name=document.getElementById('name').value;
+              let correo=document.getElementById('email').value;
+              let rfc=document.getElementById('RFC').value;
+              let CFDI=document.getElementById('CFDIDestine').value;
+              let FormaPago=document.getElementById('FormaPago').value;
+              let MetodoPago=document.getElementById('MetodoPago').value;
+              let Date=document.getElementById('Fecha').value;
+              doc.text(10,10,'Nombre del Usuario:');
+              doc.text(10,25,name);
+              doc.text(10,40,'Correo al que se envia:');
+              doc.text(10,55,correo);
+              doc.addPage();
+              doc.text(10,10,'USO CFDI:');
+              doc.text(10,20,CFDI);
+              doc.text(10,35,'FECHA DE EXPEDICIÓN: ' + Date);
+              doc.text(10,50,'RFC EMISOR: ' + rfc);          
+              doc.text(10,60,'REGIMEN FISCAL: 601 GENERAL DE LEY PERSONAS MORALES');
+              
+              doc.text(10,70,'TIPO DE COMPROBANTE: EGRESO');
+              doc.text(10,80,'CLAVE DEL PRODUCTO O SERVICIO: 44121701 ');
+              doc.text(10,90,'CANTIDAD: 2 ');
+              doc.text(10,100,'UNIDADES: PIEZAS ');
+              doc.text(10,110,'DESCRIPCION : ASPIRINA ');
+              doc.text(10,120,'PRECIO UNITARIO: $75.00 ');
+              doc.text(10,130,'IMPORTE: $ 150.00');
+
+              doc.text(10,140,'TIPO DE CAMBIO: 1MXN = 0.061 USD');
+              doc.text(10,155,'MONEDA: PESOS MEXICANOS');
+              doc.text(10,165,'FORMA DE PAGO:'+ FormaPago);
+              doc.text(10,175,'MÉTODO DE PAGO:' + MetodoPago);
+              
+              doc.text(10,185,'SELLOS DIGITALES Y CADENAS:');
+              doc.save('FacturaElectronica.pdf');
+          }
+
+      </script>
+
+    </body>
+</html>
